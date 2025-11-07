@@ -1,7 +1,7 @@
 from fastapi import Body, FastAPI
 
 app = FastAPI()
-
+# app = FastAPI(docs_url="/docu", redoc_url=None)
 
 BOOKS = [
     {'title': 'Title One', 'author': 'Author One', 'category': 'science'},
@@ -41,7 +41,6 @@ async def read_books_by_author_path(author: str):
     for book in BOOKS:
         if book.get('author').casefold() == author.casefold():
             books_to_return.append(book)
-
     return books_to_return
 
 
